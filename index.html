@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="pedidos.css" type="text/css">
+        <title> Cargar Pedidos</title>
+    </head>
+    <body>
+      <div class="container">
+         <h1 id="titulo">Delivery De Compras De Libros</h1>
+    <hr>
+    <h2 id="parrafo">Datos del pedido.</h2>
+    <div class="datos-pedido">
+      <form id="formulario">
+        <label for="libro">Nombre del libro:</label>
+        <input type="text" id="libro" name="libro" placeholder="nombre del libro"required>
+        <br>
+        <br>
+        <label for="autor">Nombre del Autor:</label>
+        <input type="text" id="autor" name="autor" placeholder="nombre del autor" required>
+        <br>
+        <br>
+        <label for="direccion">Dirección del comprador:</label>
+        <input type="text" id="direccion" name="direccion" placeholder="direccion del comprador" required>
+        <br>
+        <br>
+    </form>
+    </div>
+    <div class="btn-container">
+      <button id="boton">CARGAR</button>
+        <button  id="refrescar"><i class="fas fa-redo-alt fa"></i>REFRESCAR</button>
+    </div>
+    <div id="confirmaciones">
+      <ul id="ul">
+      </ul>
+     <button type="submit" id="boton1">Confirmar pedido</button>
+    </div>
+</div>
+
+     
+    
+      <script src="pedidos.js"></script>
+      <script src="https://kit.fontawesome.com/be6f6f9a32.js" crossorigin="anonymous"></script>
+    </body>
+</html>
