@@ -2,6 +2,7 @@ const libro = document.getElementById("libro")
 const autor = document.getElementById("autor")
 const direccion= document.getElementById("direccion")
 const boton= document.getElementById("boton")
+const boton1= document.getElementById("boton1")
 const refrescar= document.getElementById("refrescar")
 const confirmaciones= document.getElementById("confirmaciones")
 
@@ -15,6 +16,18 @@ const parrafo= document.getElementById("parrafo")
 const lista= document.getElementById("ul")
 
 const li = document.querySelectorAll("li")
+
+const numeroDeGestion = document.getElementById("numerodegestion")
+const gestion = document.getElementById("gestion")
+
+
+numeroDeGestion.style.display= "none"
+confirmaciones.style.display= "none"
+refrescar.addEventListener("click", function(){
+  location.reload()
+})
+
+
 let contador = 0; 
 let limite = 5;
 boton.addEventListener("click" , function(e){
@@ -24,6 +37,7 @@ if(libro.value != "" && autor.value != "" && direccion.value != ""){
    confirmaciones.style.display = "block"
     formulario.reset()
     e.preventDefault()
+    confirmaciones.style.display= "block"
     contador++
   } else {
     alert("Has superado la capacidad máxima del sistema. Por favor, haz click en el botón REFRESCAR para borrar todos los ítems.")
@@ -31,9 +45,7 @@ if(libro.value != "" && autor.value != "" && direccion.value != ""){
   }else {
     alert("completa todos los campos")
   }
-  refrescar.addEventListener("click", function(){
-    location.reload()
-  })
+ 
   // pedidos.cargarItems()
   // li1.innerHTML = libro.value
   // li2.innerHTML = autor.value
@@ -62,6 +74,20 @@ class Pedido {
     }
   }
   
+
+  function codigo(){
+    var d = new Date().getTime();
+    return d
+}
+boton1.addEventListener("click" , function(){
+  numeroDeGestion.style.display= "block"
+
+    gestion.innerHTML = codigo()
+    boton.style.display = "none"
+    boton1.style.display = "none"
+    refrescar.style.display = "none"
+})
+
 /*
 
 
