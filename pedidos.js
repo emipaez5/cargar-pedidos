@@ -13,23 +13,39 @@ const titulo= document.getElementById("titulo")
 const parrafo= document.getElementById("parrafo")
 
 const lista= document.getElementById("ul")
-const li1= document.getElementById("li1")
 
+const li = document.querySelectorAll("li")
+let contador = 0; 
+let limite = 5;
 boton.addEventListener("click" , function(e){
-  e.preventDefault();
-  let pedidos = new Pedido(libro.value, autor.value, direccion.value)
+if(libro.value != "" && autor.value != "" && direccion.value != ""){
+   if(contador < limite){
+    let pedidos = new Pedido(libro.value, autor.value, direccion.value)
+   confirmaciones.style.display = "block"
+    formulario.reset()
+    e.preventDefault()
+    contador++
+  } else {
+    alert("Has superado la capacidad máxima del sistema. Por favor, haz click en el botón REFRESCAR para borrar todos los ítems.")
+  }
+  }else {
+    alert("completa todos los campos")
+  }
+  refrescar.addEventListener("click", function(){
+    location.reload()
+  })
   // pedidos.cargarItems()
   // li1.innerHTML = libro.value
   // li2.innerHTML = autor.value
   // li3.innerHTML = direccion.value
   // detalleAutor.innerHTML = autor.value
   // detalleDireccion.innerHTML = direccion.value
-  confirmaciones.style.display = " block"
-  formulario.style.display = " none"
-  titulo.innerHTML = "Revisa tu pedido"
-  parrafo.style.display = " none"
-  boton.style.display = "none"
-  refrescar.style.display = "none"
+  //libro.value = "none"
+ // formulario.style.display = " none"
+  //titulo.innerHTML = "Revisa tu pedido"
+  //parrafo.style.display = " none"
+  //boton.style.display = "none"
+ // refrescar.style.display = "none"
 })
 
 
@@ -69,4 +85,30 @@ function notificarDelivery(libro, autor, direccion) {
   // Para simplificar, solo mostraré un mensaje en la consola
   console.log("Se ha notificado al servicio de delivery la compra del libro " + libro + " de " + autor + " para la dirección " + direccion + ".");
 }
+*/
+
+/*
+let contador = 0; // Variable que cuenta los ítems
+let limite = 5; // Límite de ítems por pedido
+botonCargar.addEventListener ("click", function () {
+  if (contador < limite) { // Si hay espacio en la lista
+    let nuevoItem = new Pedido (...); // Instanciar el nuevo ítem
+    // Agregar el ítem a la lista (aquí va tu código)
+    contador++; // Aumentar el contador en uno
+  } else { // Si se alcanzó el límite
+    alert ("Has superado la capacidad máxima del sistema. Por favor, haz click en el botón REFRESCAR para borrar todos los ítems."); // Mostrar el alerta
+  }
+});
+
+*/
+
+/*
+botonRefrescar.addEventListener ("click", function () {
+  let items = document.querySelectorAll ("li"); // Seleccionar todos los elementos li
+  for (let i = 0; i < items.length; i++) { // Recorrer los elementos
+    items[i].remove (); // Eliminar el elemento
+  }
+  contador = 0; // Reiniciar el contador
+});
+
 */
